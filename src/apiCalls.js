@@ -1,7 +1,7 @@
 const checkResponse = (res) => {
-  if (!res.okay) {
+  if (!res.ok) {
     throw new Error(
-      `Status: ${response.status} StatusText: ${response.status.text}`
+      `Status: ${res.status} StatusText: ${res.status.text}`
     );
   }
   return res.json();
@@ -12,4 +12,4 @@ const fetchUsers = () => {
     .then(response => checkResponse(response));
 };
 
-export default { fetchUsers };
+export { fetchUsers };
