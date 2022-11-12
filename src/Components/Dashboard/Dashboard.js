@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import './Dashboard.css';
-import PetCard from '../PetCard/PetCard';
+import PetContainer from '../PetContainer/PetContainer';
+import Reminders from '../Reminders/Reminders';
 
-const Dashboard = () => {
+
+const Dashboard = ({ users }) => {
   return (
-    <section>
-
+    <section className='dashboard'>
+      <Reminders users={ users } />
+      <PetContainer users={ users } />
     </section>
   );
 };
