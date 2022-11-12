@@ -1,11 +1,16 @@
+import { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router';
 import './App.css';
+import Dashboard from '../Dashboard/Dashboard';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState();
+
   return (
-    <div className="app-container">
+    <main className='app-container'>
 
-    </div>
+    </main>
   );
-}
+};
 
 export default App;
