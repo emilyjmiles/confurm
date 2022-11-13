@@ -3,22 +3,27 @@ import PetContainer from '../PetContainer/PetContainer';
 import Reminders from '../Reminders/Reminders';
 
 
-const Dashboard = ({ users, patients }) => {
-  const matchPatients = users.reduce((userPets, user) => {
-    user.pets.forEach(pet => {
-      patients.forEach(patient => {
-        if (pet.petId === patient.id) {
-          userPets.push(patient);
-        };
-      });
+const Dashboard = ({ randomUser, patients, appointments }) => {
+  if (!randomUser) {
+    return (
+      <p>Loading...</p>
+    );
+  }
+  const matchPatients = randomUser.pets.reduce((userPets, pet) => {
+    patients.forEach(patient => {
+      if (pet.petId === patient.id) {
+        userPets.push(patient);
+      };
     });
 
     return userPets;
   }, []);
 
+  const findAppts = appointments.filter(appt => appt.userName === randomUser.name);
+
   return (
     <section className='dashboard'>
-      <Reminders patients={ matchPatients } />
+      <Reminders patients={ matchPatients } appointments={ findAppts } />
       <PetContainer patients={ matchPatients } />
     </section>
   );
