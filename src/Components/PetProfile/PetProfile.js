@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './PetProfile.css';
 
 const PetProfile = ({ petData }) => {
+  console.log(petData);
   return (
     <section className='pet-profile'>
       <div className='profile-container'>

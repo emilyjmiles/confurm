@@ -28,15 +28,15 @@ const App = () => {
           render={ () => <Dashboard patients={ patients } /> }
         />
         <Route
+          exact path='/request-form'
+          render={ () => <RequestForm /> }
+        />
+        <Route
           path='/:name-:id'
           render={ ({ match }) => {
             const findPet = patients.find(patient => patient.id === parseInt(match.params.id));
             return <PetProfile petData={ findPet } />;
           } }
-        />
-        <Route
-          path='/request-form'
-          render={ () => <RequestForm /> }
         />
       </Switch>
       <Footer />
