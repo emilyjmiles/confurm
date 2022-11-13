@@ -12,4 +12,9 @@ const fetchUsers = () => {
     .then(response => checkResponse(response));
 };
 
-export { fetchUsers };
+const fetchPatients = () => {
+  return fetch('https://confurm-api.herokuapp.com/api/v1/patients')
+    .then(response => checkResponse(response));
+};
+
+export { fetchUsers, fetchPatients };
