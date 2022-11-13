@@ -25,7 +25,7 @@ const App = () => {
       <Switch>
         <Route
           exact path='/'
-          render={ () => <Dashboard patients={ patients } /> }
+          render={ () => <Dashboard users={ users } patients={ patients } /> }
         />
         <Route
           exact path='/request-form'
