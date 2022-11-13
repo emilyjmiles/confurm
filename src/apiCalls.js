@@ -18,7 +18,7 @@ const fetchPatients = () => {
 };
 
 const fetchApptRequests = () => {
-  return fetch('https://confurm-api.herokuapp.com/api/v1/apptRequests')
+  return fetch('https://confurm-api.herokuapp.com/api/v1/appointments')
     .then(response => checkResponse(response));
 };
 

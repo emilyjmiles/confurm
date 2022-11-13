@@ -13,7 +13,7 @@ const RequestForm = () => {
     const newRequest = {
       id: Date.now(),
       userName: owner,
-      patientNme: pet,
+      patientName: pet,
       requestReason: reason,
       status: 'pending'
     };
