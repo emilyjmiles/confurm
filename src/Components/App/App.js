@@ -19,8 +19,6 @@ const App = () => {
       .then(data => setPatients(data.patients));
   }, []);
 
-  console.log(patients);
-
   return (
     <main className='app-container'>
       <Header users={ users } />
