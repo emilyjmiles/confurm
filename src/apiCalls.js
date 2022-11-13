@@ -17,4 +17,19 @@ const fetchPatients = () => {
     .then(response => checkResponse(response));
 };
 
-export { fetchUsers, fetchPatients };
+const fetchApptRequests = () => {
+  return fetch('https://confurm-api.herokuapp.com/api/v1/apptRequests')
+    .then(response => checkResponse(response));
+};
+
+const postApptRequest = (bodyData) => {
+  return fetch('https://confurm-api.herokuapp.com/api/v1/appointments', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(bodyData),
+  })
+    .then(response => checkResponse(response));
+};
+
+
+export { fetchUsers, fetchPatients, fetchApptRequests, postApptRequest };

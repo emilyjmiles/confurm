@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './RequestForm.css';
+import { postApptRequest } from '../../apiCalls';
+
 
 const RequestForm = () => {
   const [owner, setOwner] = useState('');
@@ -10,10 +12,12 @@ const RequestForm = () => {
     event.preventDefault();
     const newRequest = {
       id: Date.now(),
-      owner,
-      pet,
-      reason
+      userName: owner,
+      patientNme: pet,
+      requestReason: reason,
+      status: 'pending'
     };
+    postApptRequest(newRequest);
     clearInputs();
   };
 
@@ -44,7 +48,7 @@ const RequestForm = () => {
           value={ reason }
           onChange={ (event) => setReason(event.target.value) }
         />
-        <button onClick={ () => submitRequest }>Submit Request</button>
+        <button onClick={ (event) => submitRequest(event) }>Submit Request</button>
       </form>
     </section>
   );
