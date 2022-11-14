@@ -14,21 +14,35 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [patients, setPatients] = useState([]);
   const [appointments, setAppointments] = useState([]);
+  const [loading, setLoading] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchUsers()
-      .then(data => setUsers(data.users));
+      .then(data => setUsers(data.users))
+      .catch(error => setError(error));
+
     fetchPatients()
-      .then(data => setPatients(data.patients));
+      .then(data => setPatients(data.patients))
+      .catch(error => setError(error));
+
     fetchApptRequests()
-      .then(data => setAppointments(data.appointments));
+      .then(data => setAppointments(data.appointments))
+      .catch(error => setError(error));
   }, []);
+
+
+  if (!users || !patients || !appointments) {
+    setLoading('Please be patience while we load your information!');
+  }
 
   const setRandomUser = users[Math.floor(Math.random() * users.length)];
 
   return (
     <main className='app-container'>
       <Header randomUser={ setRandomUser } />
+      { loading && <h1>{ loading }</h1> }
+      { error && <h1>Oh no! Something went wrong, please try again later.</h1> }
       <Switch>
         <Route
           exact path='/'
