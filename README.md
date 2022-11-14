@@ -20,13 +20,13 @@
 ## About The Project
 conFURm is a pet health application that allows a user to view their pets medications and wellness reminders as well as request an appointment for their fur babies. A user can view their dashboard which will show them any important reminders or unpcoming appointments and requests. The user can then click on a pet card and view that pet's profile with a detailed list of medications. A user can then submit a request for an appointment for any pet and, as long as the name on their account is the same as the name submitted on the form, the request will show up pending on their dashboard.
 
-[Click her to explore the conFURm app!](https://6372b319af84e918c17ecda2--emilyjmiles.netlify.app/)
+[Click here to explore the conFURm app!](https://6372b319af84e918c17ecda2--emilyjmiles.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Project Spec
 
-conFURN is a pet health application built in week 17 of [Turing School of Software and Design](https://turing.edu/) front-end engineering program. The goals of this [solo project](https://frontend.turing.edu/projects/module-3/showcase.html) were to:
+conFURm is a pet health application built in week 17 of [Turing School of Software and Design](https://turing.edu/) front-end engineering program. The goals of this [solo project](https://frontend.turing.edu/projects/module-3/showcase.html) were to:
 
 - Utilize React and React Router
 - Test the UI/UX using Cypress
@@ -119,7 +119,7 @@ The following resources helped us build this project:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Reflections
-Since I could not find a suitible API for the application I wanted to build. I 
+Since I could not find a suitible API for the application I wanted to build, I decided to learn how to build my own express backend. I learned so much about compiling data and deepened my understanding of the complex nature of asychronous request. Given the time frame for this project, I do feel like my ability to make a polished and beautiful UI for the frontend suffered a bit due to the time consuming process of learning express. That being said, I am super happy with what I was able to accomplish and am excited to have more freedom and flexibilty with building future applications with the new knowledge I obtained during the making of conFURm. 
 
 ### Wins:
 - Successfully self-taught and built a multiple endpoint Express backend.
