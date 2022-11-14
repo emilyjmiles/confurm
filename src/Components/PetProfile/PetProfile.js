@@ -14,7 +14,7 @@ const PetProfile = ({ petData }) => {
     );
   });
 
-  const getLastWt = petData.medHx.weight.reverse();
+  const getLastWt = petData.medHx.weight.slice(-1);
 
   return (
     <section className='pet-profile'>
@@ -24,7 +24,7 @@ const PetProfile = ({ petData }) => {
           <div className='pet-details'>
             <div className='details-header'>
               <h1>{ petData.name }</h1>
-              <h3>Last Weight: { getLastWt[0] }</h3>
+              <h3>Last Weight: { getLastWt[0] } lbs</h3>
             </div>
             <h3>Reminders:</h3>
             <p></p>
