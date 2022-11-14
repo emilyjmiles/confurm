@@ -28,20 +28,17 @@ describe('empty spec', () => {
   });
 
   it('should be able to fill out the form and submit a new appointment request', () => {
-    Cypress.Commands.add('appointments', () => {
-      cy.request('POST', 'https://confurm-api.herokuapp.com/api/v1/appointments',
-        { fixture: 'appointments' },
-        {
-          statusCode: 200,
-          body: {
-            id: 250,
-            userName: 'Emily Miles',
-            patientName: 'Nova',
-            requestReason: 'Nail trim',
-            status: 'pending'
-          }
-        });
-    });
+    cy.intercept('POST', 'https://confurm-api.herokuapp.com/api/v1/appointments',
+      {
+        statusCode: 200,
+        body: {
+          id: Date.now(),
+          userName: 'Emily Miles',
+          patientName: 'Nova',
+          requestReason: 'Nail trim',
+          status: 'pending'
+        }
+      });
     cy.get('input[placeholder="first name"]').type('Emily');
     cy.get('input[placeholder="last name"]').type('Miles');
     cy.get('input[placeholder="pet name"]').type('Nova');
