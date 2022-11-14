@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
+
 import './Reminders.css';
 
 const Reminders = ({ patients, appointments }) => {
-  console.log(appointments);
   // const getReminders = patients.map(patient => {
   //   return (
   //     <div key={ patient.id }>
@@ -35,3 +36,8 @@ const Reminders = ({ patients, appointments }) => {
 };
 
 export default Reminders;
+
+Reminders.propTypes = {
+  patients: PropTypes.array,
+  appointments: PropTypes.array.isRequired
+};

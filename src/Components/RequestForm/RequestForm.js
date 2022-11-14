@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import './RequestForm.css';
+
 import { postApptRequest } from '../../apiCalls';
 
+import './RequestForm.css';
 
 const RequestForm = () => {
   const [ownerFirst, setOwnerFirst] = useState('');
@@ -60,7 +61,7 @@ const RequestForm = () => {
             type='text'
             placeholder='reason for appointment'
             value={ reason }
-            maxlength='250'
+            maxLength='250'
             onChange={ (event) => setReason(event.target.value) }
           />
           <button onClick={ (event) => submitRequest(event) }>Submit Request</button>

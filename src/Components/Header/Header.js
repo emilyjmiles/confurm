@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import './Header.css';
 import logo from '../../assets/confurm-logo.png';
-import { Link } from 'react-router-dom';
 
 const Header = ({ randomUser }) => {
   if (!randomUser) {
@@ -19,3 +21,14 @@ const Header = ({ randomUser }) => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  randomUser: PropTypes.shape({
+    userId: PropTypes.number,
+    name: PropTypes.string.isRequired,
+    address: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    pets: PropTypes.array,
+  }),
+};

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
+
 import { fetchUsers, fetchPatients, fetchApptRequests } from '../../apiCalls';
+
+import './App.css';
 import Header from '../Header/Header';
 import Dashboard from '../Dashboard/Dashboard';
 import PetProfile from '../PetProfile/PetProfile';

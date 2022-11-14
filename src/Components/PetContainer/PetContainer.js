@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import './PetContainer.css';
 import PetCard from '../PetCard/PetCard';
 
@@ -22,3 +24,7 @@ const PetContainer = ({ patients }) => {
 };
 
 export default PetContainer;
+
+PetContainer.propTypes = {
+  patients: PropTypes.array.isRequired
+};

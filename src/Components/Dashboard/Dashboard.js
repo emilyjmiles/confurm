@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import './Dashboard.css';
 import PetContainer from '../PetContainer/PetContainer';
 import Reminders from '../Reminders/Reminders';
@@ -9,6 +11,7 @@ const Dashboard = ({ randomUser, patients, appointments }) => {
       <p>Loading...</p>
     );
   }
+
   const matchPatients = randomUser.pets.reduce((userPets, pet) => {
     patients.forEach(patient => {
       if (pet.petId === patient.id) {
@@ -30,3 +33,16 @@ const Dashboard = ({ randomUser, patients, appointments }) => {
 };
 
 export default Dashboard;
+
+Dashboard.propTypes = {
+  randomUser: PropTypes.shape({
+    userId: PropTypes.number,
+    name: PropTypes.string,
+    address: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    pets: PropTypes.array.isRequired,
+  }),
+  patients: PropTypes.array.isRequired,
+  appointments: PropTypes.array.isRequired,
+};
