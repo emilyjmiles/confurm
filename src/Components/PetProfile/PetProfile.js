@@ -28,7 +28,7 @@ const PetProfile = ({ petData }) => {
             </div>
             <h3>Reminders:</h3>
             <p></p>
-            <h3>Precriptions:</h3>
+            <h3>Prescriptions:</h3>
             { getMeds }
           </div>
           <div className='button-container'>
