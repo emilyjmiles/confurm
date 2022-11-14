@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import './PetProfile.css';
 
 const PetProfile = ({ petData }) => {
-  console.log(petData);
   const getMeds = petData.medHx.meds.map(med => {
     return (
-      <div key={ Date.now() }>
+      <div key={ med.name + Date.now() }>
         <p>Medication: { med.name } { med.strength }</p>
         <p>Instructions: { med.instructions }</p>
         { petData.medHx.meds.length > 1 && <hr></hr> }
@@ -15,7 +16,6 @@ const PetProfile = ({ petData }) => {
 
   const getLastWt = petData.medHx.weight.reverse();
 
-  console.log(getLastWt[0]);
   return (
     <section className='pet-profile'>
       <div className='profile-container'>
@@ -43,3 +43,20 @@ const PetProfile = ({ petData }) => {
 };
 
 export default PetProfile;
+
+PetProfile.propTypes = {
+  petData: PropTypes.shape({
+    id: PropTypes.number,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    DOB: PropTypes.string,
+    breed: PropTypes.string,
+    color: PropTypes.string,
+    sex: PropTypes.string,
+    medHx: PropTypes.object,
+    weight: PropTypes.array,
+    meds: PropTypes.array,
+    notes: PropTypes.array
+  })
+};
