@@ -4,7 +4,8 @@ import { postApptRequest } from '../../apiCalls';
 
 
 const RequestForm = () => {
-  const [owner, setOwner] = useState('');
+  const [ownerFirst, setOwnerFirst] = useState('');
+  const [ownerLast, setOwnerLast] = useState('');
   const [pet, setPet] = useState('');
   const [reason, setReason] = useState('');
 
@@ -12,7 +13,7 @@ const RequestForm = () => {
     event.preventDefault();
     const newRequest = {
       id: Date.now(),
-      userName: owner,
+      userName: `${ownerFirst} ${ownerLast}`,
       patientName: pet,
       requestReason: reason,
       status: 'pending'
@@ -22,34 +23,49 @@ const RequestForm = () => {
   };
 
   const clearInputs = () => {
-    setOwner('');
+    setOwnerFirst('');
+    setOwnerLast('');
     setPet('');
     setReason('');
   };
 
   return (
-    <section>
-      <form>
-        <input
-          type='text'
-          placeholder="owner's first and last name"
-          value={ owner }
-          onChange={ (event) => setOwner(event.target.value) }
-        />
-        <input
-          type='text'
-          placeholder="pet's name"
-          value={ pet }
-          onChange={ (event) => setPet(event.target.value) }
-        />
-        <input
-          type='text'
-          placeholder='reason for appointment'
-          value={ reason }
-          onChange={ (event) => setReason(event.target.value) }
-        />
-        <button onClick={ (event) => submitRequest(event) }>Submit Request</button>
-      </form>
+    <section className='form-container'>
+      <div className='form-section'>
+        <form>
+          <label>Owner's Name:
+            <input
+              type='text'
+              placeholder="first name"
+              value={ ownerFirst }
+              onChange={ (event) => setOwnerFirst(event.target.value) }
+            />
+            <input
+              type='text'
+              placeholder="last name"
+              value={ ownerLast }
+              onChange={ (event) => setOwnerLast(event.target.value) }
+            />
+          </label>
+          <label>Pet's Name:
+            <input
+              type='text'
+              placeholder="pet's name"
+              value={ pet }
+              onChange={ (event) => setPet(event.target.value) }
+            />
+          </label>
+          <label>Reason for Appointment:</label>
+          <textarea
+            type='text'
+            placeholder='reason for appointment'
+            value={ reason }
+            maxlength='250'
+            onChange={ (event) => setReason(event.target.value) }
+          />
+          <button onClick={ (event) => submitRequest(event) }>Submit Request</button>
+        </form>
+      </div>
     </section>
   );
 };
