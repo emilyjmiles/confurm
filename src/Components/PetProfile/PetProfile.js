@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './PetProfile.css';
 
-const PetProfile = ({ petData }) => {
+const PetProfile = ({ petData, error }) => {
   const getMeds = petData.medHx.meds.map(med => {
     return (
       <div key={ med.name + Date.now() }>
@@ -19,12 +19,13 @@ const PetProfile = ({ petData }) => {
   return (
     <section className='pet-profile'>
       <div className='profile-container'>
+        { error && <h1>Oh no! Something went wrong while fetching your information.</h1> }
         <img className='profile-image' src={ petData.image } alt={ `${petData.name}` } width="600px" height="600px" />
         <div className='details-container'>
           <div className='pet-details'>
             <div className='details-header'>
               <h1>{ petData.name }</h1>
-              <h3>Last Weight: { getLastWt[0] } lbs</h3>
+              <h3>Last Weight: { getLastWt } lbs</h3>
             </div>
             <h3>Reminders:</h3>
             <p></p>
