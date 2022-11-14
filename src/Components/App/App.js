@@ -14,7 +14,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [patients, setPatients] = useState([]);
   const [appointments, setAppointments] = useState([]);
-  const [loading, setLoading] = useState('');
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -31,9 +31,8 @@ const App = () => {
       .catch(error => setError(error));
   }, []);
 
-
   if (!users || !patients || !appointments) {
-    setLoading('Please be patience while we load your information!');
+    setLoading(true);
   }
 
   const setRandomUser = users[Math.floor(Math.random() * users.length)];
@@ -41,8 +40,8 @@ const App = () => {
   return (
     <main className='app-container'>
       <Header randomUser={ setRandomUser } />
-      { loading && <h1>{ loading }</h1> }
-      { error && <h1>Oh no! Something went wrong, please try again later.</h1> }
+      { loading && <h1>Please be patient while we retreive your information!</h1> }
+      { error && <h1>Oh no! Something went wrong while fetching your information.</h1> }
       <Switch>
         <Route
           exact path='/'
@@ -56,7 +55,7 @@ const App = () => {
           path='/:name-:id'
           render={ ({ match }) => {
             const findPet = patients.find(patient => patient.id === parseInt(match.params.id));
-            return <PetProfile petData={ findPet } />;
+            return <PetProfile petData={ findPet } loading={ loading } error={ error } />;
           } }
         />
       </Switch>
