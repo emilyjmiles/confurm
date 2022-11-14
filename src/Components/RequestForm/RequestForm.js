@@ -51,7 +51,7 @@ const RequestForm = () => {
           <label>Pet's Name:
             <input
               type='text'
-              placeholder="pet's name"
+              placeholder="pet name"
               value={ pet }
               onChange={ (event) => setPet(event.target.value) }
             />
