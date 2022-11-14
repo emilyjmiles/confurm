@@ -1,0 +1,48 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 77.5vh;
+}
+
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85vw;
+  height: 66vh;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 1%;
+  padding: 2.5%
+}
+
+label {
+  width: 50vw;
+  margin: 1%;
+}
+
+input {
+  width: 15vw;
+  margin: 1%;
+}
+
+textarea {
+  width: 50vw;
+  height: 25vh;
+  margin: 1%;
+}
+
+button {
+  margin: 2.5%;
+}
+
